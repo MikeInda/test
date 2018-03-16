@@ -1,4 +1,14 @@
-#header_row {
+/*#header_row {
     position: fixed;
     top: 0;
+}*/
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td {
+    border: 1px solid;
+    margin: 0;
 }

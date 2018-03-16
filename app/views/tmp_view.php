@@ -10,7 +10,7 @@
     <body>
         <div id="wrapper">
             <div id="content">
-                <?php include 'application/views/'.$content_view; ?>
+                <?php include 'app/views/'.$content_view; ?>
             </div>
         </div>
     </body>
