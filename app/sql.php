@@ -19,7 +19,7 @@
         }
 
         private function __construct() {
-            $cfg = $this->getConfig("mysql.cfg");
+            $cfg = $this->getConfig("app/mysql.cfg");
             $this->_host = $cfg["host"];
             $this->_username = $cfg["user"];
             $this->_password = $cfg["pass"];
@@ -29,7 +29,7 @@
                 $this->_password, $this->_database);
 
             if(mysqli_connect_error()) {
-                trigger_error("Failed to connect to MySQL: " . mysql_connect_error(),
+                trigger_error("Failed to connect to MySQL: " . mysqli_connect_error(),
                     E_USER_ERROR);
             }
         }
@@ -39,5 +39,33 @@
         public function getConnection() {
             return $this->_connection;
         }
+
+        public function select() {
+            $mysqli = $this->getConnection();
+            $sql_query = "SELECT * FROM test";
+            return $mysqli->query($sql_query);
+        }
+
+        public function add($class, $name, $dtn, $date) {
+            $mysqli = $this->getConnection();
+            $sql_query = "INSERT INTO test SET `Class`='" .$class.
+                                             "',`Name`='" .$name.
+                                             "',`Dtn`='" .$dtn.
+                                             "',`Date`='" .$date.
+                                             "'";
+            return $mysqli->query($sql_query);
+        }
+
+        public function update($id, $class, $name, $dtn, $date) {
+            $mysqli = $this->getConnection();
+            $sql_query = "UPDATE test SET `Class`='" .$class.
+                                       "',`Name`='" .$name.
+                                       "',`Dtn`='" .$dtn.
+                                       "',`Date`='" .$date.
+                                 "' WHERE `id`='" .$id. "'";
+            return $mysqli->query($sql_query);
+        }
+
+
     }
 ?>

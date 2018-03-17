@@ -11,4 +11,32 @@ table {
 table td {
     border: 1px solid;
     margin: 0;
+    padding: 5px;
+}
+
+.form_err {
+    display: none;
+    color: red;
+}
+
+.b-border {
+    border: 2px solid gray;
+    animation: animBlinkBorder 1s linear infinite;
+}
+
+@keyframes animBlinkBorder {
+    0% {
+        border-color: red;
+    }
+    50% {
+        border-color: transparent;
+    }
+    100% {
+        border-color: red;
+    }
+}
+
+* {
+    font-family: Lato;
+    font-size: 14px;
 }
