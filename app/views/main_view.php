@@ -1,63 +1,82 @@
 <script src="/js/validate.js" type="text/javascript"></script>
 <script src="/js/update.js" type="text/javascript"></script>
+<script src="/js/header.js" type="text/javascript"></script>
 
-<table>
-    <tr id="header_row">
-        <td>
-            Номер
-        </td>
-        <td>
-            Класс
-        </td>
-        <td>
-            Ученик
-        </td>
-        <td>
-            Датация
-        </td>
-        <td>
-            Дата рождения
-        </td>
-    </tr>
-    <?php
+<div id="wrap">
+    <div id="header">
+        <table>
+            <col id="num_col">
+            <col id="class_col">
+            <col id="name_col">
+            <col id="dtn_col">
+            <col id="date_col">
+            <thead>
+                <tr id="header_row">
+                    <th>
+                        Номер
+                    </th>
+                    <th>
+                        Класс
+                    </th>
+                    <th>
+                        Ученик
+                    </th>
+                    <th>
+                        Датация
+                    </th>
+                    <th>
+                        Дата рождения
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-    $i = 0;
-    foreach($data as $row)
-    {
-        $i++;
-        echo '<tr id="row_'.$row['id'].'">
-                <td id="number_'.$row['id'].'">'
-                    .$i.
-               '</td>
-                <td>
-                    <input class="table_input" id="class_'.$row['id'].'" value="'.$row['Class'].'" type="text" />
-                </td>
-                <td>
-                    <input class="table_input" id="name_'.$row['id'].'" value="'.$row['Name'].'" type="text" />
-                </td>
-                <td>
-                    <input class="table_checkbox" id="dtn_'.$row['id'].'" '.((!!$row['Dtn'])?'checked':'').' type="checkbox" />
-                </td>
-                <td>
-                    <input class="table_date" id="date_'.$row['id'].'" value="'.$row['Date'].'" type="date" />
-                </td>
-              </tr>';
-    }
+    </div>
+    <div>
+        <table id="table">
+            <col id="num_col">
+            <col id="class_col">
+            <col id="name_col">
+            <col id="dtn_col">
+            <col id="date_col">
+            <?php
 
-    ?>
-</table>
+            $i = 0;
+            foreach($data as $row)
+            {
+                $i++;
+                echo '<tr id="row_'.$row['id'].'">
+                        <td class="num_td">'
+                            .$i.
+                       '</td>
+                        <td>
+                            <input class="table_input" id="class_'.$row['id'].'" value="'.$row['Class'].'" type="text" />
+                        </td>
+                        <td>
+                            <input class="table_input" id="name_'.$row['id'].'" value="'.$row['Name'].'" type="text" />
+                        </td>
+                        <td class="dtn_td">
+                            <input class="table_input" id="dtn_'.$row['id'].'" '.((!!$row['Dtn'])?'checked':'').' type="checkbox" />
+                        </td>
+                        <td>
+                            <input class="table_input" id="date_'.$row['id'].'" value="'.$row['Date'].'" type="date" />
+                        </td>
+                      </tr>';
+            }
+
+            ?>
+        </table>
+    </div>
+</div>
 
 <form id="form" action="javascript:void(0);" onsubmit="ajax()" method="post">
-    <p class="form_desc">Класс</p>
+    <label for="class">Класс</label>
     <input required id="class" name="class" type="text" />
-    <p class="form_desc">Ученик</p>
+    <label for="name">Ученик</label>
     <input required id="name" name="name" type="text" />
-    <p class="form_desc">Дата рождения</p>
+    <label for="date">Дата&nbsp;рождения</label>
     <input required id="date" name="date" type="date" />
-    <p class="form_desc">
-        <input id="dtn" name="dtn" type="checkbox" />
-        <label for="dtn">Датация</label>
-    </p>
-    <p><input id="send" value="Добавить" type="submit" /></p>
-
+    <input id="dtn" name="dtn" type="checkbox" />
+    <label for="dtn">Датация</label>
+    <input id="send" value="Добавить" type="submit" />
 </form>

@@ -17,9 +17,9 @@
         {
             $db = Database::getInstance();
             if ($_POST['dtn'] == 'on') {
-                $dtn = 1;
+                $dtn = '1';
             } else {
-                $dtn = 0;
+                $dtn = '0';
             }
             $result = $db->add($_POST['class'],
                                $_POST['name'],
@@ -31,10 +31,10 @@
         function action_update()
         {
             $db = Database::getInstance();
-            if ($_POST['dtn'] == 'on') {
-                $dtn = 1;
+            if ($_POST['dtn'] == 'true') {
+                $dtn = '1';
             } else {
-                $dtn = 0;
+                $dtn = '0';
             }
             $result = $db->update($_POST['id'],
                 $_POST['class'],

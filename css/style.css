@@ -1,27 +1,32 @@
-/*#header_row {
-    position: fixed;
-    top: 0;
-}*/
+html {
+    overflow:  hidden;
+}
+
+body {
+    margin: 0;
+}
 
 table {
     border-collapse: collapse;
     width: 100%;
 }
 
-table td {
+table td,
+table th {
     border: 1px solid;
     margin: 0;
-    padding: 5px;
+    padding: 0px;
+    background-color: white;
 }
 
-.form_err {
-    display: none;
-    color: red;
+table td {
+    border-top: none;
 }
 
 .b-border {
-    border: 2px solid gray;
+    border: 2px solid gray!important;
     animation: animBlinkBorder 1s linear infinite;
+    width: calc(100% - 14px)!important;
 }
 
 @keyframes animBlinkBorder {
@@ -39,4 +44,71 @@ table td {
 * {
     font-family: Lato;
     font-size: 14px;
+}
+
+form input[type="text"],
+form input[type="date"] {
+    width: 200px;
+    height: 48px;
+    border-radius: 5px;
+    box-shadow: none;
+    outline: none;
+}
+
+table input[type="text"],
+table input[type="date"] {
+    width: calc(100% - 10px);
+    height: 100%;
+    box-shadow: none;
+    outline: none;
+    padding: 5px;
+    border: none;
+}
+
+#num_col {
+    width: 55px;
+}
+#class_col {
+    width: 50px;
+}
+
+#dtn_col {
+    width: 68px;
+}
+
+#date_col {
+    width: 155px;
+}
+
+th,
+.num_td{
+    padding: 5px!important;
+}
+
+.num_td,
+.dtn_td {
+    text-align: center;
+}
+
+form {
+    margin: 20px;
+    padding: 5px;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+}
+
+form input {
+    margin: 5px;
+}
+
+#wrap {
+    overflow: auto;
+    max-height: calc(100vh - 180px);
+    width: calc(100vw - 10px);
+    margin: 5px;
+    padding: 0;
+}
+
+#table {
+    border-top: none;
 }

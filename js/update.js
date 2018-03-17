@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('input').on('blur', function () {
+    $('.table_input').on('blur', function () {
         if ($(this).val() == '') {
             $(this).focus();
         } else {
@@ -10,7 +10,7 @@ $(document).ready(function() {
             msg['id'] = id;
             msg['class'] = $('#class_' + id).val();
             msg['name'] = $('#name_' + id).val();
-            msg['dtn'] = $('#dtn_' + id).val();
+            msg['dtn'] = $('#dtn_' + id).prop('checked');
             msg['date'] = $('#date_' + id).val();
             $.ajax({
                 type: "POST",
