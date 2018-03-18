@@ -65,18 +65,19 @@ table input[type="date"] {
     border: none;
 }
 
-#num_col {
+.num_col {
     width: 55px;
 }
-#class_col {
+
+.class_col {
     width: 50px;
 }
 
-#dtn_col {
+.dtn_col {
     width: 68px;
 }
 
-#date_col {
+.date_col {
     width: 155px;
 }
 
@@ -91,10 +92,11 @@ th,
 }
 
 form {
-    margin: 20px;
+    margin: 0 auto;
     padding: 5px;
     border: 2px solid lightgray;
     border-radius: 5px;
+    width: 215px;
 }
 
 form input {
@@ -103,7 +105,7 @@ form input {
 
 #wrap {
     overflow: auto;
-    max-height: calc(100vh - 180px);
+    max-height: calc(100vh - 310px);
     width: calc(100vw - 10px);
     margin: 5px;
     padding: 0;
@@ -111,4 +113,38 @@ form input {
 
 #table {
     border-top: none;
+}
+
+form div {
+    display: inline-block;
+}
+
+@media (min-width: 601px) {
+    table label {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .class_td,
+    .name_td,
+    .dtn_td,
+    .date_td,
+    #header {
+        display: none;
+    }
+    #table {
+        border-top: 1px solid black;
+    }
+    table input[type="text"],
+    table input[type="date"] {
+        width: calc(100vw - 146px)!important;
+        height: auto;
+    }
+
+    .b-border {
+        border: 2px solid gray!important;
+        animation: animBlinkBorder 1s linear infinite;
+        width: calc(100vw - 150px)!important;
+    }
 }
